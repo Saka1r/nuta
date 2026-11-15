@@ -1,0 +1,10 @@
+/target
+**/*.rs.bk
+*.pdb
+
+# editor scratch files
+*.swp
+*~
+error.log
+test.py
+test.rs

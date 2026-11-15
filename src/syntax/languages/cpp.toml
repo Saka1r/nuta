@@ -1,0 +1,39 @@
+name = "C++"
+extensions = ["cpp", "cc", "cxx", "hpp", "hh", "hxx"]
+
+[[rule]]
+regex = '//.*$'
+group = "Comment"
+
+[[rule]]
+regex = '/\*.*?\*/'
+group = "Comment"
+
+[[rule]]
+regex = '"[^"]*"'
+group = "String"
+
+[[rule]]
+regex = "'[^']*'"
+group = "String"
+
+[[rule]]
+regex = '^\s*#\s*[A-Za-z_][A-Za-z0-9_]*'
+group = "PreProc"
+
+[[rule]]
+regex = '\b(0x[0-9a-fA-F]+|[0-9]+)\b'
+group = "Number"
+
+[[rule]]
+regex = '\b(auto|break|case|const|continue|default|do|else|enum|extern|for|goto|if|register|return|sizeof|static|struct|switch|typedef|union|volatile|while|signed|unsigned|class|namespace|template|typename|using|new|delete|this|nullptr|true|false|virtual|override|final|constexpr|mutable|friend|operator|public|private|protected|try|catch|throw)\b'
+group = "Keyword"
+
+[[rule]]
+regex = '\b(char|double|float|int|long|short|void|bool|size_t|ssize_t|string|vector|map|set|unordered_map|unordered_set)\b'
+group = "Type"
+
+[[rule]]
+regex = '\b[A-Za-z_][A-Za-z0-9_]*\('
+group = "Function"
+capture = 1

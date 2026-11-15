@@ -1,0 +1,43 @@
+name = "Rust"
+extensions = ["rs"]
+
+[[rule]]
+regex = '//.*$'
+group = "Comment"
+
+[[rule]]
+regex = '/\*.*?\*/'
+group = "Comment"
+
+[[rule]]
+regex = '"[^"]*"'
+group = "String"
+
+[[rule]]
+regex = "'[A-Za-z_][A-Za-z0-9_]*"
+group = "Special"
+
+[[rule]]
+regex = '#!?\[.*?\]'
+group = "Special"
+
+[[rule]]
+regex = '\b(0x[0-9a-fA-F]+|[0-9]+)\b'
+group = "Number"
+
+[[rule]]
+regex = '\b(as|async|await|break|const|continue|crate|dyn|else|enum|extern|false|fn|for|if|impl|in|let|loop|match|mod|move|mut|pub|ref|return|self|Self|static|struct|super|trait|true|type|unsafe|use|where|while)\b'
+group = "Keyword"
+
+[[rule]]
+regex = '\b(i8|i16|i32|i64|i128|isize|u8|u16|u32|u64|u128|usize|f32|f64|bool|char|str|String|Vec|Option|Result|Box)\b'
+group = "Type"
+
+[[rule]]
+regex = '\b[A-Za-z_][A-Za-z0-9_]*!'
+group = "Macro"
+
+[[rule]]
+regex = '\b[A-Za-z_][A-Za-z0-9_]*\('
+group = "Function"
+capture = 1

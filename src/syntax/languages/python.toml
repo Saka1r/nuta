@@ -1,0 +1,35 @@
+name = "Python"
+extensions = ["py", "pyi"]
+
+[[rule]]
+regex = '#.*$'
+group = "Comment"
+
+[[rule]]
+regex = '"[^"]*"'
+group = "String"
+
+[[rule]]
+regex = "'[^']*'"
+group = "String"
+
+[[rule]]
+regex = '\b[0-9]+(\.[0-9]+)?\b'
+group = "Number"
+
+[[rule]]
+regex = '\b(def|class|return|if|elif|else|for|while|import|from|as|with|try|except|finally|raise|pass|break|continue|lambda|yield|global|nonlocal|assert|del|in|is|not|and|or|None|True|False)\b'
+group = "Keyword"
+
+[[rule]]
+regex = '\b(int|str|list|dict|tuple|set|bool|float|bytes|object)\b'
+group = "Type"
+
+[[rule]]
+regex = '@[A-Za-z_][A-Za-z0-9_]*'
+group = "Special"
+
+[[rule]]
+regex = '\b([A-Za-z_][A-Za-z0-9_]*)\('
+group = "Function"
+capture = 1
