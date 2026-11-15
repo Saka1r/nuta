@@ -477,8 +477,6 @@ impl Editor {
                 return;
             }
 
-            let open_params = self.did_open_params();
-
             if let Some(lsp) = self.lsp.as_mut() {
                 let _ = lsp.notify("initialized", json!({}));
 

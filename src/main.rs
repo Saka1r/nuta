@@ -14,6 +14,11 @@ use std::thread;
 use terminal::{Input, RawModeGuard, Screen};
 
 fn main() -> io::Result<()> {
+
+    // Включаем поддержку ANSI-цветов в Windows
+    #[cfg(windows)]
+    let _ = crossterm::ansi_support::supports_ansi();
+
     let filepath = std::env::args().nth(1);
     let config = config::Config::load_or_create()?;
 

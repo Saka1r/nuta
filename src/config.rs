@@ -1,6 +1,7 @@
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::{fs, io, path::PathBuf};
+use dirs;
 
 /// Главный конфиг Nuta.
 ///
@@ -118,14 +119,12 @@ impl Config {
     /// $XDG_CONFIG_HOME/nuta/config.toml
     /// или ~/.config/nuta/config.toml
     pub fn path() -> PathBuf {
-        let base = std::env::var_os("XDG_CONFIG_HOME")
-            .map(PathBuf::from)
-            .or_else(|| {
-                std::env::var_os("HOME").map(|home| PathBuf::from(home).join(".config"))
-            })
-            .unwrap_or_else(|| PathBuf::from(".config"));
-
-        base.join("nuta").join("config.toml")
+        // dirs::config_dir() автоматически возвращает:
+        // Linux: ~/.config
+        // macOS: ~/Library/Application Support
+        // Windows: C:\Users\Name\AppData\Roaming
+        let base = dirs::config_dir().unwrap_or_else(|| std::path::PathBuf::from("."));
+        base.join("nuta").join("config.toml") 
     }
 
     /// Загрузить конфиг. Если файла нет — создать дефолтный.

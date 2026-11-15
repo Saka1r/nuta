@@ -54,7 +54,7 @@ Named after a musical note (*nuta*), and backronymed into **N**imble **U**nix **
 ### Requirements
 
 - Rust 1.70+ (`rustup` recommended)
-- A POSIX terminal (Linux, macOS, or WSL)
+- A POSIX terminal (Linux, macOS, or WSL) or Windows 10/11
 - A terminal with truecolor support for the intended palette
 
 ### Build
@@ -357,19 +357,7 @@ Known and accepted for now:
 | Linux | ✅ Supported |
 | macOS | ✅ Supported |
 | WSL / WSL2 | ✅ Supported |
-| Windows (native) | ❌ Not yet |
-
-The terminal layer binds directly to POSIX APIs:
-
-- `termios` for raw mode
-- `ioctl(TIOCGWINSZ)` for window size
-- `poll()` for escape-sequence timeouts
-
-Native Windows support would require either swapping the backend to
-[`crossterm`](https://github.com/crossterm-rs/crossterm), or a `windows-sys` implementation
-behind conditional compilation. The editor core itself is platform-agnostic.
-
-**Windows users:** run nuta under WSL — it works unchanged.
+| Windows (native) | ✅ Supported |
 
 ---
 
@@ -387,7 +375,7 @@ behind conditional compilation. The editor core itself is platform-agnostic.
 - [ ] Multi-line syntax regions
 - [ ] Local LLM assistant (`:ai explain`, `:ai refactor`) via llama.cpp
 - [ ] Lua plugin API
-- [ ] Windows backend
+- [x] Windows backend
 
 ---
 
